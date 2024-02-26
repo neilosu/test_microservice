@@ -1,17 +1,66 @@
 # test_microservice
+- Assuming the server is running on the local machine and the port is 5000.
+- Assuming the route is `/db/acquire_unit`
 
-## Request data
-example request data
-```json
-{
+## How to programmatically REQUEST data
+An example script of sending a request to the microservice
+```python
+import requests
+import json
+
+url = "http://127.0.0.1:5000/db/acquire_unit"
+
+# We would like to acquire the vocabulary set of list 1, unit 6 and the attributes word, word_id, meaning_US, sentence
+payload = json.dumps({
   "list": 1,
-  "unit": 1,
-  "attribute": ["word_id", "meaning_US", "sentence"]
+  "unit": 6,
+  "attribute": [
+    "word",
+    "word_id",
+    "meaning_US",
+    "sentence",
+  ]
+})
+headers = {
+    'Content-Type': 'application/json'
 }
+
+response = requests.request("POST", url, headers=headers, data=payload, timeout=10)
+
+# Now you have the response data
 ```
 
-## Receive data
-example response data
+## How to programmatically RECEIVE data
+```python
+import requests
+import json
+
+url = "http://127.0.0.1:5000/db/acquire_unit"
+
+payload = json.dumps({
+  "list": 1,
+  "unit": 6,
+  "attribute": [
+    "word",
+    "word_id",
+    "meaning_US",
+    "sentence",
+  ]
+})
+headers = {
+    'Content-Type': 'application/json'
+}
+
+response = requests.request("POST", url, headers=headers, data=payload, timeout=10)
+
+result = response.json()
+result_dict = json.loads(result)
+
+# Let's print the result with indentation
+print(json.dumps(result_dict, indent=4))
+```
+
+This is an example of the printed response data
 ```json
 [
     {
