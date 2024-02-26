@@ -35,4 +35,14 @@ example response data
 ]
 ```
 
-## UML sequence diagram
+## UML Sequence Diagram
+```mermaid
+sequenceDiagram
+    participant P as Program making a request
+    participant M as Microservice
+
+    Note over P: This program sends a post request to the microservice<br/> with the certain list number, unit number and attributes that the<br/> vocabulary details have.
+    P->>M: (POST) /db/acquire_unit
+    Note over M: Microservice processes the request and returns a list vocabulary sets.
+    M-->>P: List (Vocabulary_set)
+```
