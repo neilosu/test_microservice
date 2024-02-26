@@ -8,7 +8,9 @@ payload = json.dumps({
   "unit": 6,
   "attribute": [
     "word",
-    "sentence"
+    "word_id",
+    "meaning_US",
+    "sentence",
   ]
 })
 headers = {
