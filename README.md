@@ -1,6 +1,7 @@
 # test_microservice
 - Assuming the server is running on the local machine and the port is 5000.
 - Assuming the route is `/db/acquire_unit`
+- The vocabulary database is attached in the repository as `GRE_3333.db`
 
 ## How to programmatically REQUEST data
 An example script of sending a request to the microservice
