@@ -4,7 +4,13 @@
 - The vocabulary database is attached in the repository as `GRE_3333.db`
 
 ## How to programmatically REQUEST data
-An example script of sending a request to the microservice
+To request data (vocabulary), you need to specify `the list number`, `the unit number` and `the attributes`.
+
+Below are the attributes that you can specify.
+```python
+"word_id", "list", "unit", "meaning_id", "meaning_TW", "pronunciation_US", "pronunciation_UK", "how_to_memorize", "meaning_US", "sentence", "sentence_translate", "synonym", "antonym", "related", "transform", "notes"
+```
+An example script of sending a request to the microservice.
 ```python
 import requests
 import json
